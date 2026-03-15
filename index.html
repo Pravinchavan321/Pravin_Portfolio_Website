@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pravin Chavan — Agentic AI Developer &amp; Data Scientist</title>
+  <meta name="description"
+    content="Award-winning portfolio of Pravin Chavan — Agentic AI Developer, Data Scientist, and Full-Stack Engineer architecting intelligent data pipelines." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
+          colors: {
+            neon: {
+              blue: '#00D4FF',
+              purple: '#8B5CF6',
+              emerald: '#10B981',
+              pink: '#EC4899',
+              cyan: '#06B6D4',
+            },
+            dark: {
+              950: '#030712',
+              900: '#0A0E1A',
+              800: '#0F1629',
+              700: '#151D35',
+              600: '#1E2A4A',
+              500: '#2A3860',
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-dark-950 text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-neon-purple/30 selection:text-white">
+
+  <!-- ===== NEURAL NETWORK CANVAS ===== -->
+  <canvas id="neural-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+
+  <!-- ===== CURSOR GLOW (desktop only) ===== -->
+  <div id="cursor-glow" class="cursor-glow"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-700">
+    <div class="glass-nav rounded-2xl px-4 sm:px-6 py-3">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2.5 group">
+          <div class="logo-box">
+            <span class="text-white font-bold text-lg">P</span>
+          </div>
+          <span class="text-white font-semibold tracking-tight hidden sm:block">
+            pravin<span class="text-neon-blue">.dev</span>
+          </span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#hero" class="nav-pill active">Home</a>
+          <a href="#about" class="nav-pill">About</a>
+          <a href="#skills" class="nav-pill">Skills</a>
+          <a href="#projects" class="nav-pill">Projects</a>
+          <a href="#achievements" class="nav-pill">Achievements</a>
+          <a href="#contact" class="nav-pill">Contact</a>
+        </div>
+
+        <!-- Resume + Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="Pravin_Chavan_Resume.pdf" download="Pravin_Chavan_Resume.pdf" class="resume-btn hidden sm:flex">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Resume</span>
+          </a>
+          <button id="mobile-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors" aria-label="Menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu-panel">
+      <a href="#hero" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#achievements" class="mobile-link">Achievements</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="Pravin_Chavan_Resume.pdf" download="Pravin_Chavan_Resume.pdf" class="resume-btn w-full justify-center mt-2">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Download Resume</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-20 overflow-hidden">
+    <!-- Gradient Orbs -->
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-purple"></div>
+    <div class="orb orb-emerald"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <!-- Availability Badge -->
+      <div class="reveal-up inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass-badge mb-10">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-emerald opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-neon-emerald"></span>
+        </span>
+        <span class="text-sm font-medium text-neon-emerald tracking-wide">Available for Opportunities</span>
+      </div>
+
+      <!-- Greeting -->
+      <p class="reveal-up text-sm sm:text-base font-mono text-neon-blue mb-4 tracking-widest uppercase" style="animation-delay:0.1s">
+        // Hello World
+      </p>
+
+      <!-- Main Heading -->
+      <h1 class="reveal-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.95] tracking-tight" style="animation-delay:0.2s">
+        I'm <span class="hero-name">Pravin</span><br />
+        <span class="hero-name">Chavan</span><span class="text-neon-blue">.</span>
+      </h1>
+
+      <!-- Typewriter -->
+      <div class="reveal-up h-10 sm:h-12 flex items-center justify-center mb-8" style="animation-delay:0.3s">
+        <div class="typewriter-container">
+          <span class="font-mono text-lg sm:text-xl md:text-2xl text-gray-400">
+            { <span id="typed-role" class="text-neon-cyan font-semibold"></span><span class="cursor-blink text-neon-blue font-light">|</span> }
+          </span>
+        </div>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="reveal-up text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed" style="animation-delay:0.4s">
+        Architecting <span class="text-white font-medium">intelligent data pipelines</span> and
+        <span class="text-white font-medium">scalable web applications</span> to solve complex real-world problems.
+      </p>
+
+      <!-- CTAs -->
+      <div class="reveal-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-14" style="animation-delay:0.5s">
+        <a href="#projects" class="cta-primary group">
+          <span>Explore My Work</span>
+          <i data-lucide="arrow-down-right" class="w-5 h-5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></i>
+        </a>
+        <a href="#contact" class="cta-secondary group">
+          <span>Get in Touch</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="reveal-up flex items-center justify-center gap-4" style="animation-delay:0.6s">
+        <a href="https://github.com/Pravinchavan321" target="_blank" rel="noopener noreferrer" class="social-orb" aria-label="GitHub">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/pravin-chavan001" target="_blank" rel="noopener noreferrer" class="social-orb" aria-label="LinkedIn">
+          <i data-lucide="linkedin" class="w-5 h-5"></i>
+        </a>
+        <a href="mailto:sonuchavan987654321@gmail.com" class="social-orb" aria-label="Email">
+          <i data-lucide="mail" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+      <div class="mouse-scroll">
+        <div class="mouse-dot"></div>
+      </div>
+      <span class="text-[10px] text-gray-600 uppercase tracking-[.3em] mt-2">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="relative py-28 lg:py-36">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="section-reveal">
+        <div class="text-center mb-20">
+          <p class="section-tag"><i data-lucide="user" class="w-3.5 h-3.5"></i> About Me</p>
+          <h2 class="section-heading">Know Who <span class="gradient-text-blue">I Am</span></h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <!-- Left: Info -->
+          <div class="space-y-6">
+            <div class="glass-card p-8 rounded-3xl">
+              <p class="text-gray-300 leading-relaxed text-[15px] mb-5">
+                I am a <span class="text-white font-semibold">B.Tech Computer Science and Engineering</span> student at
+                <span class="text-neon-blue font-semibold">Lovely Professional University</span> (Class of 2027) with a CGPA of
+                <span class="text-neon-emerald font-semibold">7.77</span>.
+              </p>
+              <p class="text-gray-400 leading-relaxed text-[15px]">
+                I am deeply passionate about pushing the boundaries of
+                <span class="text-neon-purple font-medium">Generative AI</span>,
+                <span class="text-neon-blue font-medium">Machine Learning</span>, and
+                <span class="text-neon-emerald font-medium">modern web technologies</span>.
+                I thrive on architecting data-driven solutions that bridge the gap between raw information and actionable intelligence.
+              </p>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-3 gap-4">
+              <div class="stat-card">
+                <span class="stat-number counter" data-target="150" data-suffix="+">0</span>
+                <span class="stat-label">LeetCode Solved</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number counter" data-target="90" data-suffix="+">0</span>
+                <span class="stat-label">Day Streak</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number counter" data-target="5" data-suffix="">0</span>
+                <span class="stat-label">Projects Built</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Core Competencies Grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="competency-card" style="--accent: #00D4FF">
+              <div class="competency-icon"><i data-lucide="brain" class="w-6 h-6"></i></div>
+              <h4>Problem Solving</h4>
+              <p>Analytical thinking with 150+ DSA problems solved</p>
+            </div>
+            <div class="competency-card" style="--accent: #8B5CF6">
+              <div class="competency-icon"><i data-lucide="zap" class="w-6 h-6"></i></div>
+              <h4>Quick Learner</h4>
+              <p>Rapidly adopting new technologies & frameworks</p>
+            </div>
+            <div class="competency-card" style="--accent: #10B981">
+              <div class="competency-icon"><i data-lucide="repeat" class="w-6 h-6"></i></div>
+              <h4>Adaptability</h4>
+              <p>Flexible across AI, Web, Cloud & Data domains</p>
+            </div>
+            <div class="competency-card" style="--accent: #EC4899">
+              <div class="competency-icon"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
+              <h4>Education</h4>
+              <p>B.Tech CSE @ LPU — CGPA 7.77</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="relative py-28 lg:py-36">
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-purple/5 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="section-reveal">
+        <div class="text-center mb-20">
+          <p class="section-tag"><i data-lucide="cpu" class="w-3.5 h-3.5"></i> Tech Arsenal</p>
+          <h2 class="section-heading">Skills & <span class="gradient-text-purple">Technologies</span></h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Languages -->
+          <div class="skill-panel" data-accent="blue">
+            <div class="skill-panel-header">
+              <div class="skill-icon-wrap bg-neon-blue/10 text-neon-blue"><i data-lucide="terminal" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold text-sm tracking-wide">LANGUAGES</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item" data-percent="95">
+                <span class="skill-name">Python</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill bg-neon-blue"></div></div>
+                <span class="skill-pct text-neon-blue">95%</span>
+              </div>
+              <div class="skill-item" data-percent="78">
+                <span class="skill-name">Java</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill bg-neon-blue"></div></div>
+                <span class="skill-pct text-neon-blue">78%</span>
+              </div>
+              <div class="skill-item" data-percent="72">
+                <span class="skill-name">C++</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill bg-neon-blue"></div></div>
+                <span class="skill-pct text-neon-blue">72%</span>
+              </div>
+              <div class="skill-item" data-percent="70">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill bg-neon-blue"></div></div>
+                <span class="skill-pct text-neon-blue">70%</span>
+              </div>
+              <div class="skill-item" data-percent="80">
+                <span class="skill-name">SQL</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill bg-neon-blue"></div></div>
+                <span class="skill-pct text-neon-blue">80%</span>
+              </div>
+              <div class="skill-item" data-percent="65">
+                <span class="skill-name">C</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill bg-neon-blue"></div></div>
+                <span class="skill-pct text-neon-blue">65%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI & Data Science -->
+          <div class="skill-panel" data-accent="purple">
+            <div class="skill-panel-header">
+              <div class="skill-icon-wrap bg-neon-purple/10 text-neon-purple"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold text-sm tracking-wide">AI & DATA</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="chip chip-purple">PyTorch</span>
+              <span class="chip chip-purple">Scikit-Learn</span>
+              <span class="chip chip-purple">Pandas</span>
+              <span class="chip chip-purple">NumPy</span>
+              <span class="chip chip-purple">Matplotlib</span>
+              <span class="chip chip-purple">Seaborn</span>
+              <span class="chip chip-purple">Hugging Face</span>
+            </div>
+          </div>
+
+          <!-- Web & Cloud -->
+          <div class="skill-panel" data-accent="emerald">
+            <div class="skill-panel-header">
+              <div class="skill-icon-wrap bg-neon-emerald/10 text-neon-emerald"><i data-lucide="cloud" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold text-sm tracking-wide">WEB & CLOUD</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="chip chip-emerald">React</span>
+              <span class="chip chip-emerald">Node.js</span>
+              <span class="chip chip-emerald">Express.js</span>
+              <span class="chip chip-emerald">AWS</span>
+              <span class="chip chip-emerald">Azure</span>
+              <span class="chip chip-emerald">MongoDB</span>
+              <span class="chip chip-emerald">PostgreSQL</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-panel" data-accent="pink">
+            <div class="skill-panel-header">
+              <div class="skill-icon-wrap bg-neon-pink/10 text-neon-pink"><i data-lucide="wrench" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold text-sm tracking-wide">DEV TOOLS</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="chip chip-pink">Power BI</span>
+              <span class="chip chip-pink">Linux</span>
+              <span class="chip chip-pink">Git</span>
+              <span class="chip chip-pink">Docker</span>
+              <span class="chip chip-pink">VS Code</span>
+              <span class="chip chip-pink">Excel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="relative py-28 lg:py-36">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="section-reveal">
+        <div class="text-center mb-20">
+          <p class="section-tag"><i data-lucide="folder-kanban" class="w-3.5 h-3.5"></i> Featured Work</p>
+          <h2 class="section-heading">Selected <span class="gradient-text-emerald">Projects</span></h2>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="bento-grid">
+          <!-- Project 1 — Large -->
+          <div class="bento-item bento-large group">
+            <div class="bento-bg bg-gradient-to-br from-neon-blue/10 via-dark-800 to-neon-purple/10"></div>
+            <div class="bento-content">
+              <div class="flex items-center justify-between mb-4">
+                <span class="project-badge badge-blue">Power BI • DAX • Power Query</span>
+                <span class="text-xs text-gray-500 font-mono">Nov – Dec 2025</span>
+              </div>
+              <h3 class="project-title">Predicting the Green Shift</h3>
+              <p class="project-desc">
+                Time-Series & Geospatial Analysis of Electric Vehicle Adoption. Built a high-impact, dark-themed Power BI
+                dashboard analyzing EV adoption trends across <span class="text-neon-blue">45+ districts</span> with
+                advanced DAX measures and Power Query transformations.
+              </p>
+              <div class="project-tags">
+                <span>Power BI</span><span>DAX</span><span>Power Query</span><span>Data Viz</span><span>Geospatial</span>
+              </div>
+            </div>
+            <div class="bento-icon"><i data-lucide="bar-chart-big" class="w-20 h-20"></i></div>
+          </div>
+
+          <!-- Project 2 — Medium -->
+          <div class="bento-item bento-medium group">
+            <div class="bento-bg bg-gradient-to-br from-neon-emerald/10 via-dark-800 to-neon-cyan/10"></div>
+            <div class="bento-content">
+              <div class="flex items-center justify-between mb-4">
+                <span class="project-badge badge-emerald">Python • Pandas • Seaborn</span>
+                <span class="text-xs text-gray-500 font-mono">Jan – May 2025</span>
+              </div>
+              <h3 class="project-title">MTA Ridership Recovery</h3>
+              <p class="project-desc">
+                Post-pandemic transit trends in NYC using Python-based time-series analysis, advanced statistical
+                visualizations, and data pipeline engineering.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>Pandas</span><span>Seaborn</span><span>Time-Series</span>
+              </div>
+            </div>
+            <div class="bento-icon"><i data-lucide="train-front" class="w-16 h-16"></i></div>
+          </div>
+
+          <!-- Project 3 — Medium -->
+          <div class="bento-item bento-medium group">
+            <div class="bento-bg bg-gradient-to-br from-neon-pink/10 via-dark-800 to-neon-purple/10"></div>
+            <div class="bento-content">
+              <div class="flex items-center justify-between mb-4">
+                <span class="project-badge badge-pink">AI • Psychology • Simulation</span>
+                <span class="text-xs text-gray-500 font-mono">2025</span>
+              </div>
+              <h3 class="project-title">Mental Health Simulator</h3>
+              <p class="project-desc">
+                An innovative application bridging human psychology and algorithmic logic — simulating mental health
+                scenarios with AI-driven insights and empathetic design.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>AI</span><span>Simulation</span><span>UX</span>
+              </div>
+            </div>
+            <div class="bento-icon"><i data-lucide="heart-pulse" class="w-16 h-16"></i></div>
+          </div>
+
+          <!-- Project 4 — Small -->
+          <div class="bento-item bento-small group">
+            <div class="bento-bg bg-gradient-to-br from-red-500/10 via-dark-800 to-neon-blue/10"></div>
+            <div class="bento-content">
+              <div class="flex items-center justify-between mb-3">
+                <span class="project-badge badge-red">Excel • Data Modeling</span>
+                <span class="text-xs text-gray-500 font-mono">Jan – May 2025</span>
+              </div>
+              <h3 class="project-title text-lg">Flixable Findings</h3>
+              <p class="project-desc text-xs">
+                Netflix content trend analyzer with PivotTables, dynamic slicers, and advanced data modeling.
+              </p>
+              <div class="project-tags">
+                <span>Excel</span><span>PivotTables</span><span>Charts</span>
+              </div>
+            </div>
+            <div class="bento-icon"><i data-lucide="film" class="w-12 h-12"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS SECTION ===== -->
+  <section id="achievements" class="relative py-28 lg:py-36">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-purple/20 to-transparent"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="section-reveal">
+        <div class="text-center mb-20">
+          <p class="section-tag"><i data-lucide="trophy" class="w-3.5 h-3.5"></i> Milestones</p>
+          <h2 class="section-heading">Achievements & <span class="gradient-text-pink">Certifications</span></h2>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot dot-blue"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-blue">Certification</div>
+              <h3 class="text-white font-bold text-lg mb-2">Oracle Cloud Infrastructure 2025</h3>
+              <p class="text-gray-400 text-sm">Data Science Professional — OCI foundations, ML modeling, and cloud data services.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot dot-purple"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-purple">Certification</div>
+              <h3 class="text-white font-bold text-lg mb-2">Cloud Computing — NPTEL</h3>
+              <p class="text-gray-400 text-sm">Comprehensive course covering cloud architectures, virtualization, and distributed computing.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot dot-emerald"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-emerald">Training</div>
+              <h3 class="text-white font-bold text-lg mb-2">DSA with C++ — Cipher Schools</h3>
+              <p class="text-gray-400 text-sm">Intensive training mastering data structures from arrays to graphs, with algorithmic problem-solving in C++.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot dot-pink"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-pink">Achievement</div>
+              <h3 class="text-white font-bold text-lg mb-2">150+ LeetCode Problems Solved</h3>
+              <p class="text-gray-400 text-sm">Consistently tackling algorithmic challenges across Easy, Medium, and Hard to sharpen competitive programming skills.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot dot-yellow"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-yellow">Achievement</div>
+              <h3 class="text-white font-bold text-lg mb-2">HackerRank Silver Badge — 90+ Day Streak</h3>
+              <p class="text-gray-400 text-sm">Exceptional dedication with 90+ consecutive days of problem-solving, earning the coveted Silver Badge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="relative py-28 lg:py-36">
+    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="section-reveal">
+        <div class="text-center mb-16">
+          <p class="section-tag"><i data-lucide="send" class="w-3.5 h-3.5"></i> Get In Touch</p>
+          <h2 class="section-heading">Let's Build <span class="gradient-text-blue">Together</span></h2>
+          <p class="text-gray-400 mt-5 max-w-lg mx-auto text-[15px]">
+            Have a project idea, a question, or just want to connect? I'd love to hear from you.
+          </p>
+        </div>
+
+        <!-- Contact Info Chips -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <a href="mailto:sonuchavan987654321@gmail.com" class="contact-chip">
+            <i data-lucide="mail" class="w-4 h-4 text-neon-blue"></i>
+            <span>sonuchavan987654321@gmail.com</span>
+          </a>
+          <a href="tel:+917499267940" class="contact-chip">
+            <i data-lucide="phone" class="w-4 h-4 text-neon-emerald"></i>
+            <span>+91 7499267940</span>
+          </a>
+        </div>
+
+        <!-- Form -->
+        <div class="glass-card p-8 sm:p-10 rounded-3xl">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="submit-btn group">
+              <span>Send Message</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </form>
+          <div id="form-success" class="form-success hidden">
+            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            <span>Message sent successfully! I'll get back to you soon.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-10 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="logo-box w-8 h-8 text-sm"><span class="text-white font-bold">P</span></div>
+          <span class="text-gray-500 text-sm">Designed & Crafted by <span class="text-white">Pravin Chavan</span></span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/Pravinchavan321" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-neon-blue transition-colors duration-300"><i data-lucide="github" class="w-5 h-5"></i></a>
+          <a href="https://www.linkedin.com/in/pravin-chavan001" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-neon-blue transition-colors duration-300"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+          <a href="mailto:sonuchavan987654321@gmail.com" class="text-gray-600 hover:text-neon-blue transition-colors duration-300"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        </div>
+        <p class="text-gray-700 text-xs">&copy; 2026 Pravin Chavan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
