@@ -13,7 +13,7 @@
   const ctx = canvas.getContext('2d');
   let nodes = [];
   let mouse = { x: -1000, y: -1000 };
-  const NODE_COUNT = 80;
+  const NODE_COUNT = 40;
   const CONNECT_DIST = 150;
   const MOUSE_DIST = 200;
 
@@ -222,26 +222,7 @@
 
   document.querySelectorAll('.section-reveal').forEach(el => revealObserver.observe(el));
 
-  /* ─────────── SKILL BAR ANIMATION ─────────── */
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const percent = entry.target.getAttribute('data-percent');
-          const fill = entry.target.querySelector('.skill-bar-fill');
-          if (fill) {
-            requestAnimationFrame(() => {
-              fill.style.width = percent + '%';
-            });
-          }
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
 
-  document.querySelectorAll('.skill-item').forEach(el => skillObserver.observe(el));
 
   /* ─────────── COUNTER ANIMATION ─────────── */
   const counterObserver = new IntersectionObserver(
